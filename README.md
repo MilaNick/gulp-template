@@ -1,3 +1,5 @@
+# В РАЗРАБОТКЕ
+
 # ✨GULP-template v.1✨
 
 ## 🚀 Quick start
@@ -7,4 +9,5 @@ npm i
 
 ```
 ## 📖 Note
- -  all versions except WW can be changed to "latest"
+- all versions except WW can be changed to "latest"
+- exit watch mode Ctrl+C

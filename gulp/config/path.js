@@ -18,5 +18,7 @@ export const paths = {
     src: {
         files: `${srcPath}/*.*`
     },
-    watch: {},
+    watch: {
+        files: `${srcPath}/*.*`
+    },
 }
