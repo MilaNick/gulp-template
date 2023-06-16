@@ -1,0 +1,34 @@
+{
+  "name": "gulp-template",
+  "version": "1.0.0",
+  "description": "Basic configuration of gulp",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MilaNick/gulp-template.git"
+  },
+  "keywords": [
+    "gulp",
+    "fonts",
+    "zip",
+    "ftp",
+    "scss",
+    "webp",
+    "img",
+    "gulp-template",
+    "gulp-boilerplate"
+  ],
+  "author": "Mila Zolotova <l.zolotova@yahoo.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MilaNick/gulp-template/issues"
+  },
+  "homepage": "https://github.com/MilaNick/gulp-template#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
