@@ -13,14 +13,19 @@ export const paths = {
         src: srcPath,
     },
     build: {
+        html: `${buildPath}`,
+        css: `${buildPath}/assets/styles`,
         images: `${buildPath}/assets/images`,
-        files: `${buildPath}`
+        js: `${buildPath}/assets/scripts`,
+
     },
     src: {
+        html: `${srcPath}/*.*`,
+        css: `${srcPath}/assets/styles/app.min.css`,
         images: `${srcPath}/assets/images/*.*`,
-        files: `${srcPath}/*.*`
+        js: `${srcPath}/assets/scripts/app.min.js`,
     },
     watch: {
-        files: `${srcPath}/**/*.*`
+        all: `${srcPath}/**/*.*`
     },
 }
