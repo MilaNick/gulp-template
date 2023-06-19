@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+@@include("./components/head.html", {
+"title": "gulp-template",
+})
 <body>
-    <p>Привет, вперед</p>
+    @@include("./components/header.html", {})
+    <p>Hi, friend!</p>
+    <img src="@img/1_$1.jpeg" alt="">
+    @@include("./components/footer.html", {})
 </body>
 </html>

@@ -13,12 +13,14 @@ export const paths = {
         src: srcPath,
     },
     build: {
+        images: `${buildPath}/assets/images`,
         files: `${buildPath}`
     },
     src: {
+        images: `${srcPath}/assets/images/*.*`,
         files: `${srcPath}/*.*`
     },
     watch: {
-        files: `${srcPath}/*.*`
+        files: `${srcPath}/**/*.*`
     },
 }
