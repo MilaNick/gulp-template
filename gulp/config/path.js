@@ -21,11 +21,15 @@ export const paths = {
     },
     src: {
         html: `${srcPath}/*.*`,
-        css: `${srcPath}/assets/styles/app.min.css`,
-        images: `${srcPath}/assets/images/*.*`,
-        js: `${srcPath}/assets/scripts/app.min.js`,
+        scss: `${srcPath}/assets/styles/index.scss`,
+        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
+        svg: `${srcPath}/assets/images/*.svg`,
+        js: `${srcPath}/assets/scripts/index.js`,
     },
     watch: {
+        scss: `${srcPath}/assets/styles/index.scss`,
+        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp,svg}`,
+        js: `${srcPath}/assets/scripts/index.js`,
         all: `${srcPath}/**/*.*`
     },
 }
