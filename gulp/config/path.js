@@ -16,6 +16,7 @@ export const paths = {
         html: `${buildPath}`,
         css: `${buildPath}/assets/styles`,
         images: `${buildPath}/assets/images`,
+        fonts: `${buildPath}/assets/fonts`,
         js: `${buildPath}/assets/scripts`,
 
     },
@@ -24,6 +25,7 @@ export const paths = {
         scss: `${srcPath}/assets/styles/index.scss`,
         images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
         svg: `${srcPath}/assets/images/*.svg`,
+        fonts: `${srcPath}/assets/fonts/`,
         js: `${srcPath}/assets/scripts/index.js`,
     },
     watch: {

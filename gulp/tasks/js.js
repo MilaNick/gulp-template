@@ -12,7 +12,7 @@ export const js = () => {
             mode: 'development',
             output: {
                 filename: 'index.min.js',
-            }
+            },
         }))
         .pipe(app.gulp.dest(app.paths.build.js))
         .pipe(app.plugins.browsersync.stream())
