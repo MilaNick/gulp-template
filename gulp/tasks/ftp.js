@@ -2,9 +2,9 @@ import { configFTP } from '../config/ftp.js';
 import vinylFTP from 'vinyl-ftp';
 import util from 'gulp-util';
 
-export const ftp = () => {
+export const connectFtp = () => {
     configFTP.log = util.log;
-    const ftpConnect = vinylFTP.create(configFTP);
+    const ftpConnection = vinylFTP.create(configFTP);
     return app.gulp.src(`${app.paths.base.build}/**/*.*`, {})
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
@@ -12,5 +12,5 @@ export const ftp = () => {
                 message: 'Error: <%= error.message %>'
             })
         ))
-        .pipe(ftpConnect.dest(`/${app.paths.base.ftp}/${app.path.base.root}`))
+        .pipe(ftpConnection.dest(`/${app.paths.base.ftp}/${app.path.base.root}`))
 }

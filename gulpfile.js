@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 
+import { connectFtp } from './gulp/tasks/ftp.js';
 import { copy } from './gulp/tasks/copy.js';
-import { ftp } from './gulp/tasks/ftp.js';
 import { images } from './gulp/tasks/images.js';
 import { js } from './gulp/tasks/js.js';
 import { paths } from './gulp/config/path.js';
@@ -21,7 +21,7 @@ global.app = {
 }
 
 const watcher = () => {
-    gulp.watch(paths.watch.all, copy);
+    gulp.watch(paths.watch.all, copy); // вместо copy gulp.series(copy, ftp)для вотчера, можно и следующие строки изменить также
     gulp.watch(paths.watch.images, images);
     gulp.watch(paths.watch.js, js);
     gulp.watch(paths.watch.scss, scss);
@@ -32,12 +32,12 @@ const mainTasks = gulp.series(fonts, gulp.parallel(images, js, scss, copy))
 const dev = gulp.series(reset, mainTasks, gulp.parallel(server, watcher))
 const build = gulp.series(reset, mainTasks)
 const deployZIP = gulp.series(reset, mainTasks,zip)
-const ftp = gulp.series(reset, mainTasks,ftp)
+const deployFTP = gulp.series(reset, mainTasks, connectFtp)
 
 // экспорт сценарии
 export { dev }
 export { build }
 export { deployZIP }
-export { ftp }
+export { deployFTP }
 
 gulp.task('default', dev)
