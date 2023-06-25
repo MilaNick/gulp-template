@@ -8,7 +8,7 @@ export const paths = {
     base: {
         build: buildPath,
         clean: buildPath,
-        ftp: '',
+        ftp: 'test', // название папки на сервере
         root: rootPath,
         src: srcPath,
     },
