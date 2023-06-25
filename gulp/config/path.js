@@ -23,6 +23,7 @@ export const paths = {
     src: {
         html: `${srcPath}/*.*`,
         scss: `${srcPath}/assets/styles/index.scss`,
+        styles: `${srcPath}/assets/styles/`,
         images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
         svg: `${srcPath}/assets/images/*.svg`,
         fonts: `${srcPath}/assets/fonts/`,

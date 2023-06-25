@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 
 import { copy } from './gulp/tasks/copy.js';
-// import { fonts } from './gulp/tasks/fonts.js';
 import { images } from './gulp/tasks/images.js';
 import { js } from './gulp/tasks/js.js';
+import { otfToTtf, ttfToWoff, fontsStyle } from './gulp/tasks/fonts.js';
 import { paths } from './gulp/config/path.js';
 import { plugins } from './gulp/config/plugins.js';
 import { reset } from './gulp/tasks/reset.js';
@@ -23,7 +23,8 @@ const watcher = () => {
     gulp.watch(paths.watch.scss, scss);
 }
 
-const mainTasks = gulp.parallel(images, js, scss, copy)
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
+const mainTasks = gulp.series(fonts, gulp.parallel(images, js, scss, copy))
 const dev = gulp.series(reset, mainTasks, gulp.parallel(server, watcher))
 
 gulp.task('default', dev)
