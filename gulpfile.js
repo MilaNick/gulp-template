@@ -9,6 +9,7 @@ import { plugins } from './gulp/config/plugins.js';
 import { reset } from './gulp/tasks/reset.js';
 import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
+import { zip } from './gulp/tasks/zip.js';
 
 global.app = {
     gulp,
@@ -29,9 +30,11 @@ const fonts = gulp.series(ttfToWoff, fontsStyle);
 const mainTasks = gulp.series(fonts, gulp.parallel(images, js, scss, copy))
 const dev = gulp.series(reset, mainTasks, gulp.parallel(server, watcher))
 const build = gulp.series(reset, mainTasks)
+const deployZIP = gulp.series(reset, mainTasks,zip)
 
 // экспорт сценарии
 export { dev }
 export { build }
+export { deployZIP }
 
 gulp.task('default', dev)
