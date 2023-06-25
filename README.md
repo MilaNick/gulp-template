@@ -1,5 +1,3 @@
-# В РАЗРАБОТКЕ
-
 # ✨GULP-template v.1✨
 Gulp will collect and compress files, connect the preprocessor.  
 With gulp, images are optimized and converted to webp format.
