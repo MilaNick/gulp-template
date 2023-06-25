@@ -13,26 +13,26 @@ export const paths = {
         src: srcPath,
     },
     build: {
-        html: `${buildPath}`,
         css: `${buildPath}/assets/styles`,
-        images: `${buildPath}/assets/images`,
         fonts: `${buildPath}/assets/fonts`,
+        html: `${buildPath}`,
+        images: `${buildPath}/assets/images`,
         js: `${buildPath}/assets/scripts`,
 
     },
     src: {
-        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
         fonts: `${srcPath}/assets/fonts/`,
         html: `${srcPath}/*.*`,
+        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
         js: `${srcPath}/assets/scripts/index.js`,
         scss: `${srcPath}/assets/styles/index.scss`,
         styles: `${srcPath}/assets/styles/`,
         svg: `${srcPath}/assets/images/*.svg`,
     },
     watch: {
-        scss: `${srcPath}/assets/styles/index.scss`,
+        all: `${srcPath}/**/*.*`,
         images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp,svg}`,
         js: `${srcPath}/assets/scripts/index.js`,
-        all: `${srcPath}/**/*.*`
+        scss: `${srcPath}/assets/styles/index.scss`
     },
 }

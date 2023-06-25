@@ -12,6 +12,8 @@ import { scss } from './gulp/tasks/scss.js';
 
 global.app = {
     gulp,
+    isBuild: process.argv.includes('--build'),
+    isDev: !process.argv.includes('--build'),
     paths,
     plugins,
 }
@@ -26,5 +28,10 @@ const watcher = () => {
 const fonts = gulp.series(ttfToWoff, fontsStyle);
 const mainTasks = gulp.series(fonts, gulp.parallel(images, js, scss, copy))
 const dev = gulp.series(reset, mainTasks, gulp.parallel(server, watcher))
+const build = gulp.series(reset, mainTasks)
+
+// экспорт сценарии
+export { dev }
+export { build }
 
 gulp.task('default', dev)

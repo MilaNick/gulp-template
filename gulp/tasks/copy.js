@@ -14,21 +14,31 @@ export const copy = () => {
         .pipe(app.plugins.replace(/@img\//g, 'assets/images/'))
         .pipe(app.plugins.replace(/@js\//g, 'assets/scripts/'))
         .pipe(app.plugins.replace(/@css\//g, 'assets/styles/'))
-        .pipe(webP())
-        .pipe(versionNumber({
-            'value': '%DT%',
-            'append': {
-                'key': '-v',
-                'cover': 0,
-                'to': [
-                    'css',
-                    'js'
-                ]
-            },
-            'output': {
-                'file': 'gulp/version.json'
-            },
-        }))
+        .pipe(
+            app.plugins.ifPlugin(
+                app.isBuild,
+                webP()
+            )
+        )
+        .pipe(
+            app.plugins.ifPlugin(
+                app.isBuild,
+                versionNumber({
+                    'value': '%DT%',
+                    'append': {
+                        'key': '-v',
+                        'cover': 0,
+                        'to': [
+                            'css',
+                            'js'
+                        ]
+                    },
+                    'output': {
+                        'file': 'gulp/version.json'
+                    },
+                })
+            )
+        )
         .pipe(app.gulp.dest(app.paths.build.html))
         .pipe(app.plugins.browsersync.stream())
 }
