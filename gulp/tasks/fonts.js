@@ -1,23 +1,6 @@
 import fs from 'fs';
-import fonter from 'gulp-fonter';
+import ttf2woff from 'gulp-ttf2woff';
 import ttf2woff2 from 'gulp-ttf2woff2';
-
-export const otfToTtf = () => {
-    // ищем файлы шрифтов .otf
-    return app.gulp.src(`${app.paths.src.fonts}*.otf`, {})
-        .pipe(app.plugins.plumber(
-            app.plugins.notify.onError({
-                title: 'FONTS',
-                message: 'Error: <%= error.message %>'
-            })
-        ))
-        // конвертируем в .ttf
-        .pipe(fonter({
-            formats: ['ttf']
-        }))
-        // выгружаем в исходную папку
-        .pipe((app.gulp.dest(`${app.paths.src.fonts}`)))
-}
 
 export const ttfToWoff = () => {
     // ищем файлы шрифтов .ttf
@@ -28,10 +11,7 @@ export const ttfToWoff = () => {
                 message: 'Error: <%= error.message %>'
             })
         ))
-        // конвертируем в .woff
-        .pipe(fonter({
-            formats: ['woff']
-        }))
+        .pipe(ttf2woff())
         // выгружаем в папку с результатом
         .pipe(app.gulp.dest(`${app.paths.build.fonts}`))
         // ищем файлы шрифтов .ttf
@@ -48,7 +28,7 @@ export const fontsStyle = () => {
     // проверяем существует ли файлы шрифтов
     fs.readdir(app.paths.build.fonts, function (err, fontsFiles) {
         if(fontsFiles) {
-            // проверяем существует ли файл стилей  для подключения шрифтов
+            // проверяем существует ли файл стилей  для подключения шрифтов, удалить файл fonts.scss для обновления
             if(!fs.existsSync(fontsFile)) {
                 // если файла нет, создаем его
                 fs.writeFile(fontsFile, '', cb);

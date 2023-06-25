@@ -21,13 +21,13 @@ export const paths = {
 
     },
     src: {
+        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
+        fonts: `${srcPath}/assets/fonts/`,
         html: `${srcPath}/*.*`,
+        js: `${srcPath}/assets/scripts/index.js`,
         scss: `${srcPath}/assets/styles/index.scss`,
         styles: `${srcPath}/assets/styles/`,
-        images: `${srcPath}/assets/images/*.{jpeg,jpg,png,gif,webp}`,
         svg: `${srcPath}/assets/images/*.svg`,
-        fonts: `${srcPath}/assets/fonts/`,
-        js: `${srcPath}/assets/scripts/index.js`,
     },
     watch: {
         scss: `${srcPath}/assets/styles/index.scss`,
